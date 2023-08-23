@@ -4,6 +4,7 @@ import { Roboto_Serif } from "next/font/google";
 import { Providers } from "./providers";
 import NavBar from "../../conponents/Navbar";
 import { Grid, GridItem } from "@chakra-ui/react";
+import Sidebar from "../../conponents/Sidebar";
 
 const robotoSerif = Roboto_Serif({
   weight: ["300", "400", "500", "700"],
@@ -28,15 +29,15 @@ export default function RootLayout({
           <Grid gridTemplateColumns="repeat(6, 1fr)">
             <GridItem
               as="aside"
-              colSpan={1}
+              colSpan={{ base: 6, lg: 2, xl: 1 }}
               bg="blue.300"
-              p="30px"
-              minH="100vh"
+              p={{ base: "20px", lg: "30px" }}
+              minH={{ lg: "100vh" }}
             >
-              <span>Sidebar</span>
+              <Sidebar />
             </GridItem>
 
-            <GridItem as="main" colSpan={5} p="40px">
+            <GridItem as="main" p="40px" colSpan={{ base: 6, lg: 4, xl: 5 }}>
               <NavBar />
               {children}
             </GridItem>
